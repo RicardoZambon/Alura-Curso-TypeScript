@@ -1,0 +1,24 @@
+{
+  "name": "alurabank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RicardoZambon/Alura-TypeScript-Parte-1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RicardoZambon/Alura-TypeScript-Parte-1/issues"
+  },
+  "homepage": "https://github.com/RicardoZambon/Alura-TypeScript-Parte-1#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.5"
+  }
+}
