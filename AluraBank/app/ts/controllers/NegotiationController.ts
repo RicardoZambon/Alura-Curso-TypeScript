@@ -1,8 +1,8 @@
 class NegotiationController {
 
-	private _inputDate;
-	private _inputQuantity;
-	private _inputPrice;
+	private _inputDate : Element;
+	private _inputQuantity: Element;
+	private _inputPrice: Element;
 
 	constructor() {
 		this._inputDate = document.querySelector('#date');
@@ -10,7 +10,7 @@ class NegotiationController {
 		this._inputPrice = document.querySelector('#price');
 	}
 
-	add(event) {
+	add(event : Event) {
 
 		event.preventDefault();
 
