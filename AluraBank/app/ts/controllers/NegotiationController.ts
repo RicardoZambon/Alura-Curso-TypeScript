@@ -5,11 +5,14 @@ class NegotiationController {
 	private _inputPrice: HTMLInputElement;
 
 	private _negotiations = new Negotiations();
+	private _negotiationsView = new NegotiationsView('#negotiationsView');
 
 	constructor() {
 		this._inputDate = <HTMLInputElement>document.querySelector('#date');
 		this._inputQuantity = <HTMLInputElement>document.querySelector('#quantity');
 		this._inputPrice = <HTMLInputElement>document.querySelector('#price');
+
+		this._negotiationsView.update();
 	}
 
 	add(event: Event) {
