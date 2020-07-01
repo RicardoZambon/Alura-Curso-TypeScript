@@ -4,19 +4,19 @@ class Negotiation {
 
     }
 
-    get date() {
+    get date(): Date {
         return this._date;
     }
 
-    get quantity() {
+    get quantity(): number {
         return this._quantity;
     }
 
-    get price() {
+    get price(): number {
         return this._price;
     }
 
-    get volume() {
+    get volume(): number {
         return this._quantity * this._price;
     }
 }
