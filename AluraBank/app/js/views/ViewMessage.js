@@ -1,7 +1,4 @@
-class ViewMessage {
-    constructor(selector) {
-        this._element = document.querySelector(selector);
-    }
+class ViewMessage extends View {
     update(model) {
         this._element.innerHTML = this.template(model);
     }
