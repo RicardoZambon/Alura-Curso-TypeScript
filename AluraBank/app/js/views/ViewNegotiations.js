@@ -1,7 +1,4 @@
 class ViewNegotiations extends View {
-    update(model) {
-        this._element.innerHTML = this.template(model);
-    }
     template(model) {
         return `
             <table class="table table-hover table-bordered">
