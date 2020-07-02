@@ -1,4 +1,4 @@
-class NegotiationsView {
+class ViewNegotiations {
 
     private _element: Element;
 
