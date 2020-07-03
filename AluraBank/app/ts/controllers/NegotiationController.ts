@@ -5,8 +5,8 @@ class NegotiationController {
 	private _inputPrice: JQuery;
 
 	private _negotiations = new Negotiations();
-	private _viewNegotiations = new ViewNegotiations('#viewNegotiations');
-	private _viewMessage = new ViewMessage('#viewMessage');
+	private _viewNegotiations = new Views.ViewNegotiations('#viewNegotiations');
+	private _viewMessage = new Views.ViewMessage('#viewMessage');
 
 	constructor() {
 		this._inputDate = $('#date');

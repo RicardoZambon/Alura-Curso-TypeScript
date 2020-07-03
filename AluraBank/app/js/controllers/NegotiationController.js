@@ -1,8 +1,8 @@
 class NegotiationController {
     constructor() {
         this._negotiations = new Negotiations();
-        this._viewNegotiations = new ViewNegotiations('#viewNegotiations');
-        this._viewMessage = new ViewMessage('#viewMessage');
+        this._viewNegotiations = new Views.ViewNegotiations('#viewNegotiations');
+        this._viewMessage = new Views.ViewMessage('#viewMessage');
         this._inputDate = $('#date');
         this._inputQuantity = $('#quantity');
         this._inputPrice = $('#price');
