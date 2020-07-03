@@ -20,6 +20,7 @@
   "homepage": "https://github.com/RicardoZambon/Alura-TypeScript-Parte-1#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/jquery": "^2.0.42",
     "typescript": "^3.9.5"
   }
 }
