@@ -1,34 +1,31 @@
-var Views;
-(function (Views) {
-    class ViewNegotiations extends Views.View {
-        template(model) {
-            return `
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>DATE</th>
-                            <th>QUANTITY</th>
-                            <th>PRICE</th>
-                            <th>VOLUME</th>
-                        </tr>
-                    </thead>
+import { View } from './View';
+export class ViewNegotiations extends View {
+    template(model) {
+        return `
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>DATE</th>
+                        <th>QUANTITY</th>
+                        <th>PRICE</th>
+                        <th>VOLUME</th>
+                    </tr>
+                </thead>
                 
-                    <tbody>
+                <tbody>
                     
-                        ${model.toArray().map(negotiation => `<tr>
-                                <td>${negotiation.date.getDate()}/${negotiation.date.getMonth() + 1}/${negotiation.date.getFullYear()}</td>
-                                <td>${negotiation.quantity}</td>
-                                <td>${negotiation.price}</td>
-                                <td>${negotiation.volume}</td>
-                            </td>`).join('')}
+                    ${model.toArray().map(negotiation => `<tr>
+                            <td>${negotiation.date.getDate()}/${negotiation.date.getMonth() + 1}/${negotiation.date.getFullYear()}</td>
+                            <td>${negotiation.quantity}</td>
+                            <td>${negotiation.price}</td>
+                            <td>${negotiation.volume}</td>
+                        </td>`).join('')}
                     
-                    </tbody>
+                </tbody>
                 
-                    <tfoot>
-                    </tfoot>
-                </table>
-            `;
-        }
+                <tfoot>
+                </tfoot>
+            </table>
+        `;
     }
-    Views.ViewNegotiations = ViewNegotiations;
-})(Views || (Views = {}));
+}
