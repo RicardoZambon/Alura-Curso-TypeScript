@@ -6,12 +6,9 @@ System.register([], function (exports_1, context_1) {
         setters: [],
         execute: function () {
             View = class View {
-                constructor(selector, _scape) {
+                constructor(selector, _scape = false) {
                     this._scape = _scape;
                     this._element = $(selector);
-                    if (typeof this._scape == 'undefined') {
-                        this._scape = false;
-                    }
                 }
                 update(model) {
                     let template = this.template(model);

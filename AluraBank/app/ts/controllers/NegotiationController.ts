@@ -17,6 +17,8 @@ export class NegotiationController {
 		this._inputPrice = $('#price');
 
 		this._viewNegotiations.update(this._negotiations);
+
+
 	}
 
 	add(event: Event) {
