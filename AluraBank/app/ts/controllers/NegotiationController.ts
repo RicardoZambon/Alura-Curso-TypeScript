@@ -24,8 +24,14 @@ export class NegotiationController {
 	add(event: Event) {
 		event.preventDefault();
 
+		let date = new Date(this._inputDate.val().replace(/-/g, ','));
+		if (this._isWeekDay(date)) {
+			this._viewMessage.update('Only negotiations during week days, please.');
+			return;
+        }
+
 		const negotiation = new Negotiation(
-			new Date(this._inputDate.val().replace(/-/g, ',')),
+			date,
 			parseInt(this._inputQuantity.val()),
 			parseFloat(this._inputPrice.val())
 		);
@@ -42,4 +48,18 @@ export class NegotiationController {
 
 		this._viewMessage.update('Negotiation successfully added!');
 	}
+
+	private _isWeekDay(date: Date) {
+		return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;
+    }
+}
+
+enum WeekDay {
+	Sunday,
+	Monday,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday
 }
