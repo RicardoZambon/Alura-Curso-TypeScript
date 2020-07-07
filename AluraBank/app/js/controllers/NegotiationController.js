@@ -26,9 +26,6 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                     this._negotiations = new index_2.Negotiations();
                     this._viewNegotiations = new index_3.ViewNegotiations('#viewNegotiations');
                     this._viewMessage = new index_3.ViewMessage('#viewMessage');
-                    this._inputDate = $('#date');
-                    this._inputQuantity = $('#quantity');
-                    this._inputPrice = $('#price');
                     this._viewNegotiations.update(this._negotiations);
                 }
                 add(event) {
