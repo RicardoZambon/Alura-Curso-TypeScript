@@ -1,3 +1,5 @@
+import { LogRunningTime } from '../helpers/decorators/index';
+
 export abstract class View<T> {
     protected _element: JQuery;
 
@@ -5,9 +7,8 @@ export abstract class View<T> {
         this._element = $(selector);
     }
 
+    @LogRunningTime()
     update(model: T): void {
-        const t1 = performance.now();
-
         let template = this.template(model);
 
         if (this._scape) {
@@ -15,9 +16,6 @@ export abstract class View<T> {
         }
 
         this._element.html(template);
-
-        const t2 = performance.now();
-		console.log(`The update running time is ${t2 - t1} ms.`);
     }
 
     abstract template(model: T): string;
