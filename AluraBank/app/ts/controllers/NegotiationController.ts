@@ -18,10 +18,6 @@ export class NegotiationController {
 	private _viewMessage = new ViewMessage('#viewMessage');
 
 	constructor() {
-		this._inputDate = $('#date');
-		this._inputQuantity = $('#quantity');
-		this._inputPrice = $('#price');
-
 		this._viewNegotiations.update(this._negotiations);
 	}
 
