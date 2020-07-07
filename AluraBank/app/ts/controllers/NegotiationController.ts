@@ -22,6 +22,8 @@ export class NegotiationController {
 	}
 
 	add(event: Event) {
+
+		const t1 = performance.now();
 		event.preventDefault();
 
 		let date = new Date(this._inputDate.val().replace(/-/g, ','));
@@ -39,14 +41,10 @@ export class NegotiationController {
 		this._negotiations.add(negotiation);
 
 		this._viewNegotiations.update(this._negotiations);
-
-		this._negotiations.toArray().forEach(negotiation => {
-			console.log(negotiation.date);
-			console.log(negotiation.quantity);
-			console.log(negotiation.price);
-		});
-
 		this._viewMessage.update('Negotiation successfully added!');
+
+		const t2 = performance.now();
+		console.log(`The add running time is ${t2 - t1} ms.`);
 	}
 
 	private _isWeekDay(date: Date) {

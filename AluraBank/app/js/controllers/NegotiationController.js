@@ -23,6 +23,7 @@ System.register(["../models/index", "../views/index"], function (exports_1, cont
                     this._viewNegotiations.update(this._negotiations);
                 }
                 add(event) {
+                    const t1 = performance.now();
                     event.preventDefault();
                     let date = new Date(this._inputDate.val().replace(/-/g, ','));
                     if (this._isWeekDay(date)) {
@@ -32,12 +33,9 @@ System.register(["../models/index", "../views/index"], function (exports_1, cont
                     const negotiation = new index_1.Negotiation(date, parseInt(this._inputQuantity.val()), parseFloat(this._inputPrice.val()));
                     this._negotiations.add(negotiation);
                     this._viewNegotiations.update(this._negotiations);
-                    this._negotiations.toArray().forEach(negotiation => {
-                        console.log(negotiation.date);
-                        console.log(negotiation.quantity);
-                        console.log(negotiation.price);
-                    });
                     this._viewMessage.update('Negotiation successfully added!');
+                    const t2 = performance.now();
+                    console.log(`The add running time is ${t2 - t1} ms.`);
                 }
                 _isWeekDay(date) {
                     return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;

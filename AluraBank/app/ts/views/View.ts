@@ -6,6 +6,8 @@ export abstract class View<T> {
     }
 
     update(model: T): void {
+        const t1 = performance.now();
+
         let template = this.template(model);
 
         if (this._scape) {
@@ -13,6 +15,9 @@ export abstract class View<T> {
         }
 
         this._element.html(template);
+
+        const t2 = performance.now();
+		console.log(`The update running time is ${t2 - t1} ms.`);
     }
 
     abstract template(model: T): string;
