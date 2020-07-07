@@ -48,8 +48,14 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                 }
             };
             __decorate([
-                index_1.LogRunningTime()
-            ], NegotiationController.prototype, "add", null);
+                index_1.domInject('#date')
+            ], NegotiationController.prototype, "_inputDate", void 0);
+            __decorate([
+                index_1.domInject('#quantity')
+            ], NegotiationController.prototype, "_inputQuantity", void 0);
+            __decorate([
+                index_1.domInject('#price')
+            ], NegotiationController.prototype, "_inputPrice", void 0);
             exports_1("NegotiationController", NegotiationController);
             (function (WeekDay) {
                 WeekDay[WeekDay["Sunday"] = 0] = "Sunday";

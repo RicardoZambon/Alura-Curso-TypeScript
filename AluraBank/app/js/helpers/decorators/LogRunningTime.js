@@ -1,7 +1,7 @@
 System.register([], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    function LogRunningTime(showInSeconds = false) {
+    function logRunningTime(showInSeconds = false) {
         return function (target, propertyKey, descriptor) {
             const originalMethod = descriptor.value;
             descriptor.value = function (...args) {
@@ -23,7 +23,7 @@ System.register([], function (exports_1, context_1) {
             return descriptor;
         };
     }
-    exports_1("LogRunningTime", LogRunningTime);
+    exports_1("logRunningTime", logRunningTime);
     return {
         setters: [],
         execute: function () {

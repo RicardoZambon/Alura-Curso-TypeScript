@@ -1,4 +1,4 @@
-System.register(["./LogRunningTime"], function (exports_1, context_1) {
+System.register(["./DomInject", "./LogRunningTime"], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     function exportStar_1(m) {
@@ -10,6 +10,9 @@ System.register(["./LogRunningTime"], function (exports_1, context_1) {
     }
     return {
         setters: [
+            function (DomInject_1_1) {
+                exportStar_1(DomInject_1_1);
+            },
             function (LogRunningTime_1_1) {
                 exportStar_1(LogRunningTime_1_1);
             }

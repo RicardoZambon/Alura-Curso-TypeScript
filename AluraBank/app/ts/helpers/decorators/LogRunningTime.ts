@@ -1,4 +1,4 @@
-export function LogRunningTime(showInSeconds: boolean = false) {
+export function logRunningTime(showInSeconds: boolean = false) {
 
     return function(target: any, propertyKey: string, descriptor: PropertyDescriptor) {
 

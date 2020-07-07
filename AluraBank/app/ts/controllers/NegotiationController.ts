@@ -1,11 +1,16 @@
-import { LogRunningTime } from '../helpers/decorators/index';
+import { domInject } from '../helpers/decorators/index';
 import { Negotiation, Negotiations } from '../models/index';
 import { ViewNegotiations, ViewMessage } from '../views/index';
 
 export class NegotiationController {
 
+	@domInject('#date')
 	private _inputDate: JQuery;
+
+	@domInject('#quantity')
 	private _inputQuantity: JQuery;
+
+	@domInject('#price')
 	private _inputPrice: JQuery;
 
 	private _negotiations = new Negotiations();
@@ -18,11 +23,8 @@ export class NegotiationController {
 		this._inputPrice = $('#price');
 
 		this._viewNegotiations.update(this._negotiations);
-
-
 	}
 
-	@LogRunningTime()
 	add(event: Event) {
 		event.preventDefault();
 

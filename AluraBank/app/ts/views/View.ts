@@ -1,5 +1,3 @@
-import { LogRunningTime } from '../helpers/decorators/index';
-
 export abstract class View<T> {
     protected _element: JQuery;
 
@@ -7,7 +5,6 @@ export abstract class View<T> {
         this._element = $(selector);
     }
 
-    @LogRunningTime()
     update(model: T): void {
         let template = this.template(model);
 
