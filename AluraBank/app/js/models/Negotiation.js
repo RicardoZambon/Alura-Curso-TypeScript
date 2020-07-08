@@ -14,6 +14,13 @@ System.register([], function (exports_1, context_1) {
                 get volume() {
                     return this.quantity * this.price;
                 }
+                toText() {
+                    console.log('Print');
+                    console.log(`Date: ${this.date}
+            Quantity: ${this.quantity}
+            Price: ${this.price}
+            Volume: ${this.volume}`);
+                }
             };
             exports_1("Negotiation", Negotiation);
         }

@@ -2,6 +2,7 @@ import { domInject, throttle } from '../helpers/decorators/index';
 import { Negotiation, Negotiations, PartialNegotiation } from '../models/index';
 import { ViewNegotiations, ViewMessage } from '../views/index';
 import { NegotiationService } from '../services/index';
+import { print } from '../helpers/index'
 
 export class NegotiationController {
 
@@ -36,8 +37,9 @@ export class NegotiationController {
 			parseInt(this._inputQuantity.val()),
 			parseFloat(this._inputPrice.val())
 		);
-
+				
 		this._negotiations.add(negotiation);
+		print(negotiation, this._negotiations);
 
 		this._viewNegotiations.update(this._negotiations);
 		this._viewMessage.update('Negotiation successfully added!');

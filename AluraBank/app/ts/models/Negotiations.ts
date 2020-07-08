@@ -11,4 +11,9 @@ export class Negotiations {
 	toArray(): Negotiation[] {
 		return ([] as Negotiation[]).concat(this._negotiations);
 	}
+
+	toText() : void {
+		console.log('Print')
+		console.log(JSON.stringify(this._negotiations));
+	}
 }

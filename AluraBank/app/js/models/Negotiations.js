@@ -15,6 +15,10 @@ System.register([], function (exports_1, context_1) {
                 toArray() {
                     return [].concat(this._negotiations);
                 }
+                toText() {
+                    console.log('Print');
+                    console.log(JSON.stringify(this._negotiations));
+                }
             };
             exports_1("Negotiations", Negotiations);
         }
