@@ -1,4 +1,4 @@
-System.register(["../helpers/decorators/index", "../models/index", "../views/index"], function (exports_1, context_1) {
+System.register(["../helpers/decorators/index", "../models/index", "../views/index", "../services/index"], function (exports_1, context_1) {
     "use strict";
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -6,7 +6,7 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
         else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
         return c > 3 && r && Object.defineProperty(target, key, r), r;
     };
-    var index_1, index_2, index_3, NegotiationController, WeekDay;
+    var index_1, index_2, index_3, index_4, NegotiationController, WeekDay;
     var __moduleName = context_1 && context_1.id;
     return {
         setters: [
@@ -18,6 +18,9 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
             },
             function (index_3_1) {
                 index_3 = index_3_1;
+            },
+            function (index_4_1) {
+                index_4 = index_4_1;
             }
         ],
         execute: function () {
@@ -26,10 +29,10 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                     this._negotiations = new index_2.Negotiations();
                     this._viewNegotiations = new index_3.ViewNegotiations('#viewNegotiations');
                     this._viewMessage = new index_3.ViewMessage('#viewMessage');
+                    this._negotiationService = new index_4.NegotiationService();
                     this._viewNegotiations.update(this._negotiations);
                 }
-                add(event) {
-                    event.preventDefault();
+                add() {
                     let date = new Date(this._inputDate.val().replace(/-/g, ','));
                     if (this._isWeekDay(date)) {
                         this._viewMessage.update('Only negotiations during week days, please.');
@@ -52,16 +55,14 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                             throw new Error(res.statusText);
                         }
                     }
-                    fetch('http://localhost:8080/dados')
-                        .then(res => isOk(res))
-                        .then(res => res.json())
-                        .then((data) => {
-                        data
-                            .map(data => new index_2.Negotiation(new Date(), data.vezes, data.montante))
-                            .forEach(negotiation => this._negotiations.add(negotiation));
+                    this._negotiationService
+                        .getNegotiations(isOk)
+                        .then(negotiations => {
+                        negotiations.forEach(negotiation => {
+                            this._negotiations.add(negotiation);
+                        });
                         this._viewNegotiations.update(this._negotiations);
-                    })
-                        .catch(err => console.log(err.message));
+                    });
                 }
             };
             __decorate([
@@ -73,6 +74,12 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
             __decorate([
                 index_1.domInject('#price')
             ], NegotiationController.prototype, "_inputPrice", void 0);
+            __decorate([
+                index_1.throttle()
+            ], NegotiationController.prototype, "add", null);
+            __decorate([
+                index_1.throttle()
+            ], NegotiationController.prototype, "importData", null);
             exports_1("NegotiationController", NegotiationController);
             (function (WeekDay) {
                 WeekDay[WeekDay["Sunday"] = 0] = "Sunday";

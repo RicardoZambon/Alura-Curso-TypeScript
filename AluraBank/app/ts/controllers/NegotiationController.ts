@@ -1,6 +1,7 @@
-import { domInject } from '../helpers/decorators/index';
+import { domInject, throttle } from '../helpers/decorators/index';
 import { Negotiation, Negotiations, PartialNegotiation } from '../models/index';
 import { ViewNegotiations, ViewMessage } from '../views/index';
+import { NegotiationService } from '../services/index';
 
 export class NegotiationController {
 
@@ -16,14 +17,14 @@ export class NegotiationController {
 	private _negotiations = new Negotiations();
 	private _viewNegotiations = new ViewNegotiations('#viewNegotiations');
 	private _viewMessage = new ViewMessage('#viewMessage');
+	private _negotiationService = new NegotiationService();
 
 	constructor() {
 		this._viewNegotiations.update(this._negotiations);
 	}
 
-	add(event: Event) {
-		event.preventDefault();
-
+	@throttle()
+	add() {
 		let date = new Date(this._inputDate.val().replace(/-/g, ','));
 		if (this._isWeekDay(date)) {
 			this._viewMessage.update('Only negotiations during week days, please.');
@@ -46,7 +47,9 @@ export class NegotiationController {
 		return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;
 	}
 	
+	@throttle()
 	importData(event: Event) {
+
 		function isOk(res: Response) {
 			if (res.ok) {
 				return res;
@@ -55,16 +58,16 @@ export class NegotiationController {
 			}
 		}
 
-		fetch('http://localhost:8080/dados')
-			.then(res => isOk(res))
-			.then(res => res.json())
-			.then((data: PartialNegotiation[]) => {
-				data
-					.map(data => new Negotiation(new Date(), data.vezes, data.montante))
-					.forEach(negotiation => this._negotiations.add(negotiation))
+		this._negotiationService
+			.getNegotiations(isOk)
+			.then(negotiations => {
+				negotiations.forEach(negotiation => {
+					this._negotiations.add(negotiation)
+				});
+
 				this._viewNegotiations.update(this._negotiations);
 			})
-			.catch(err => console.log(err.message));
+		
 	}
 }
 
