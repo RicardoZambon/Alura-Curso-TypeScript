@@ -25,6 +25,6 @@
     "@types/jquery": "^2.0.42",
     "concurrently": "^5.2.0",
     "lite-server": "^2.5.4",
-    "typescript": "^3.9.5"
+    "typescript": "^3.9.6"
   }
 }
