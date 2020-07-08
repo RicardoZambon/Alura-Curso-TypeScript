@@ -1,4 +1,4 @@
-export class PartialNegotiation {
+export interface PartialNegotiation {
 
     vezes: number;
     montante: number;
