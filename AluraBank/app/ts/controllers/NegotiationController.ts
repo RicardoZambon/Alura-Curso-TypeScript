@@ -48,18 +48,16 @@ export class NegotiationController {
 	}
 	
 	@throttle()
-	importData(event: Event) {
-
-		function isOk(res: Response) {
-			if (res.ok) {
-				return res;
-			} else {
-				throw new Error(res.statusText);
-			}
-		}
+	importData() {
 
 		this._negotiationService
-			.getNegotiations(isOk)
+			.getNegotiations(res => {
+				if (res.ok) {
+					return res;
+				} else {
+					throw new Error(res.statusText);
+				}
+			})
 			.then(negotiations => {
 				negotiations.forEach(negotiation => {
 					this._negotiations.add(negotiation)
