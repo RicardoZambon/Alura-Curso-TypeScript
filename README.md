@@ -1,11 +1,19 @@
-# Alura TypeScript - Parte 1
-Curso da Alura sobre Typescript, 1ª parte.
+# Alura TypeScript
+Projeto de desenvolvimento do curso da Alura sobre Typescript.
 
-Conteúdo do curso:
+**[Parte 1: Evoluindo seu Javascript](https://cursos.alura.com.br/course/typescript-parte1)** 
 
-* Configurar do zero seu ambiente
-* Vantagens da tipagem estática
-* Classes utilizando o que há de melhor na linguagem
-* Utilizando modificadores de acesso, herança e tipos genéricos
-* Conhecendo gradativamente os recursos do TypeScript compiler
-* Papel dos Type Definitions
+* :white_check_mark: Configurar do zero seu ambiente
+* :white_check_mark: Vantagens da tipagem estática
+* :white_check_mark: Classes utilizando o que há de melhor na linguagem
+* :white_check_mark: Utilizando modificadores de acesso, herança e tipos genéricos
+* :white_check_mark: Conhecendo gradativamente os recursos do TypeScript compiler
+* :white_check_mark: Papel dos Type Definitions
+
+**[Parte 2: Mais técnicas e boas práticas](https://cursos.alura.com.br/course/typescript-parte2)**
+
+* :white_check_mark: NameSpace e módulos externos
+* :white_check_mark: Lapidando nosso código
+* :white_check_mark: O poder dos decorators
+* :eight_pointed_black_star: API externa e interface
+* :black_square_button: Mais sobre interfaces

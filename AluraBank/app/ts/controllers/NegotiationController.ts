@@ -44,7 +44,11 @@ export class NegotiationController {
 
 	private _isWeekDay(date: Date) {
 		return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;
-    }
+	}
+	
+	importData() {
+		alert('hi');
+	}
 }
 
 enum WeekDay {

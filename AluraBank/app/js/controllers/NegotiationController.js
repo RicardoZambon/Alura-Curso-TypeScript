@@ -43,6 +43,9 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                 _isWeekDay(date) {
                     return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;
                 }
+                importData() {
+                    alert('hi');
+                }
             };
             __decorate([
                 index_1.domInject('#date')

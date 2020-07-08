@@ -4,17 +4,18 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+
         {
-            "command": "npm start --prefix AluraBank",
-            "name": "Launch AluraBank",
+            "name": "Launch API",
+            "type": "node",
             "request": "launch",
-            "type": "node-terminal"
+            "preLaunchTask": "start_api"
         },
         {
-            "command": "npm start --prefix api",
-            "name": "Launch API",
+            "name": "Launch AluraBank",
+            "type": "node",
             "request": "launch",
-            "type": "node-terminal"
+            "preLaunchTask": "start_alurabank"
         }
     ]
 }

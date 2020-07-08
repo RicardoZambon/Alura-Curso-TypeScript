@@ -2,7 +2,17 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "start",
+            "label": "start_api",
+            "command": "npm",
+            "type": "shell",
+            "args": [
+                "start",
+                "--prefix",
+                "api"
+            ]
+        },
+        {
+            "label": "start_alurabank",
             "command": "npm",
             "type": "shell",
             "args": [
