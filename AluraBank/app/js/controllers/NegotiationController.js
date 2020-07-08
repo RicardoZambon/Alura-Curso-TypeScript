@@ -43,8 +43,25 @@ System.register(["../helpers/decorators/index", "../models/index", "../views/ind
                 _isWeekDay(date) {
                     return date.getDay() != WeekDay.Sunday && date.getDay() != WeekDay.Saturday;
                 }
-                importData() {
-                    alert('hi');
+                importData(event) {
+                    function isOk(res) {
+                        if (res.ok) {
+                            return res;
+                        }
+                        else {
+                            throw new Error(res.statusText);
+                        }
+                    }
+                    fetch('http://localhost:8080/dados')
+                        .then(res => isOk(res))
+                        .then(res => res.json())
+                        .then((data) => {
+                        data
+                            .map(data => new index_2.Negotiation(new Date(), data.vezes, data.montante))
+                            .forEach(negotiation => this._negotiations.add(negotiation));
+                        this._viewNegotiations.update(this._negotiations);
+                    })
+                        .catch(err => console.log(err.message));
                 }
             };
             __decorate([
