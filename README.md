@@ -16,4 +16,4 @@ Projeto de desenvolvimento do curso da Alura sobre Typescript.
 * :white_check_mark: Lapidando nosso código;
 * :white_check_mark: O poder dos decorators;
 * :white_check_mark: API externa e interface;
-* :eight_pointed_black_star: Mais sobre interfaces;
+* :white_check_mark: Mais sobre interfaces;
